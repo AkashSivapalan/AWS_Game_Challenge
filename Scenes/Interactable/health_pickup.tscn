@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3nn2r0ecoh48"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/health_pickup.gd" id="1_iaitx"]
+[ext_resource type="Texture2D" uid="uid://cx03u0e68ic70" path="res://Imports/Icons/my1_heart.png" id="2_dv152"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8itr"]
+radius = 8.0
+height = 24.0
+
+[node name="HealthPickup" type="Node2D"]
+script = ExtResource("1_iaitx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dv152")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_g8itr")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
