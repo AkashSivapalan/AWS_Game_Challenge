@@ -99,3 +99,11 @@ func change_Level(level_name: String):
 		get_tree().change_scene_to_file("res://Scenes/WorldScenes/" + level_name + ".tscn")
 	else:
 		print("Level is locked:", level_name)
+
+
+func _on_login_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/login_screen.tscn")
+
+
+func _on_register_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/register.tscn")

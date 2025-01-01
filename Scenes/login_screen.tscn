@@ -62,12 +62,12 @@ offset_top = 73.0
 offset_right = 666.0
 offset_bottom = 538.0
 
-[node name="email" type="Label" parent="NinePatchRect/VBoxContainer"]
+[node name="playerID" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-text = "Email
+text = "Player ID
 "
 
-[node name="EmailField" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
+[node name="PlayerID_Field" type="LineEdit" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
 [node name="password" type="Label" parent="NinePatchRect/VBoxContainer"]
@@ -101,6 +101,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rrhtx")
 text = "Login
 "
 
+[node name="HTTPRequest" type="HTTPRequest" parent="NinePatchRect/VBoxContainer/Login"]
+
 [node name="Register" type="Button" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 284.0
@@ -121,4 +123,6 @@ text = "World Map
 
 [connection signal="button_down" from="NinePatchRect/VBoxContainer/Login" to="." method="_on_login_button_down"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Login" to="." method="_on_login_pressed"]
+[connection signal="request_completed" from="NinePatchRect/VBoxContainer/Login/HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="pressed" from="NinePatchRect/Register" to="." method="_on_register_pressed"]
 [connection signal="pressed" from="NinePatchRect/WorldMap" to="." method="_on_world_map_pressed"]
