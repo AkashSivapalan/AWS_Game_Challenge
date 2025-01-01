@@ -1,6 +1,8 @@
 extends Node2D
 class_name Checkpoint
+
 @export var spawnpoint = false
+@export var win_condition = false
 
 var activated = false
 
@@ -9,6 +11,8 @@ func _ready():
 		activate()
 
 func activate():
+	if win_condition:
+		GameManager.win()
 	GameManager.current_checkpoint = self
 	activated = true
 	$AnimationPlayer.play("Activate")
