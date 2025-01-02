@@ -1,10 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var player
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var attack_area = $AttackArea
 
 @export var SPEED = 300.0
+var facing_right = true
 @export var JUMP_VELOCITY = -400.0
 @export var attacking: bool = false
 
@@ -25,9 +28,10 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_left"):
 		sprite.scale.x = abs(sprite.scale.x) * -1
+		facing_right = false
 	if Input.is_action_just_pressed("ui_right"):
 		sprite.scale.x = abs(sprite.scale.x)
-
+		facing_right = true
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -53,8 +57,10 @@ func attack():
 		return
 	attacking = true
 	animation.play("ATTACK")
-
-	var overlapping_objects = $AttackArea.get_overlapping_areas()
+	
+	var overlapping_objects = $RightAttackArea.get_overlapping_areas()
+	if !facing_right:
+		overlapping_objects = $LeftAttackArea.get_overlapping_areas()
 	for area in overlapping_objects:
 		var parent = area.get_parent()
 		parent.queue_free()

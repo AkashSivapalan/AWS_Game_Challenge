@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck6wlitn0egbh"]
+
+[ext_resource type="Texture2D" uid="uid://cectw08wespyl" path="res://Imports/Treasure Hunters/Palm Tree Island/Sprites/Objects/Flag/Platform.png" id="1_57g63"]
+[ext_resource type="Script" path="res://Scripts/Interactable/jumppad.gd" id="1_x8yn0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjol2"]
+size = Vector2(32, 16)
+
+[node name="Jumppad" type="Node2D"]
+script = ExtResource("1_x8yn0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_57g63")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xjol2")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cumd3iamx148q"]
+[gd_scene load_steps=29 format=4 uid="uid://cumd3iamx148q"]
 
 [ext_resource type="Script" path="res://Scripts/Core/RunTimeLevel.gd" id="1_epnxl"]
 [ext_resource type="Texture2D" uid="uid://bvx8qbny6m47x" path="res://Imports/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_f63jw"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b6wstxqb40dg1" path="res://Imports/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="14_ayrj4"]
 [ext_resource type="PackedScene" uid="uid://b1vc5qqqkqaqm" path="res://Scenes/Interactable/chest.tscn" id="15_xeq65"]
 [ext_resource type="PackedScene" uid="uid://d3nn2r0ecoh48" path="res://Scenes/Interactable/health_pickup.tscn" id="17_6p3rn"]
+[ext_resource type="PackedScene" path="res://Scenes/Interactable/falling_spikes.tscn" id="18_xkt1f"]
+[ext_resource type="PackedScene" uid="uid://lipiflba82ve" path="res://Scenes/Entities/sabertooth.tscn" id="19_dc4he"]
+[ext_resource type="PackedScene" uid="uid://ck6wlitn0egbh" path="res://Scenes/Interactable/jumppad.tscn" id="20_y53cn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rrru"]
 texture = ExtResource("2_g13ho")
@@ -639,6 +642,15 @@ position = Vector2(183, -149)
 
 [node name="HealthPickup" parent="." instance=ExtResource("17_6p3rn")]
 position = Vector2(762, -62)
+
+[node name="FallingSpikes" parent="." instance=ExtResource("18_xkt1f")]
+position = Vector2(52, -229)
+
+[node name="Sabertooth" parent="." instance=ExtResource("19_dc4he")]
+position = Vector2(1050, -62)
+
+[node name="Jumppad" parent="." instance=ExtResource("20_y53cn")]
+position = Vector2(630, -51)
 
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer/Resume" to="UIManager" method="_on_resume_pressed"]
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer2/Restart" to="UIManager" method="_on_restart_pressed"]

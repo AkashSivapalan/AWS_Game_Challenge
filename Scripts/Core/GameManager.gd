@@ -59,6 +59,11 @@ var win_screen
 var elapsed_time: float = 0.0
 var timer_active: bool = false
 
+func respawn_player():
+	player.health = player.max_health
+	if current_checkpoint != null:
+		player.global_position = current_checkpoint.global_position
+
 func _ready():
 	pause_menu = $PauseMenu
 	win_screen = $WinScreen
