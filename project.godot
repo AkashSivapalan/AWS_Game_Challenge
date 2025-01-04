@@ -25,6 +25,10 @@ LevelData="*res://Scripts/Core/LevelData.gd"
 window/size/viewport_width=960
 window/size/viewport_height=540
 
+[global_group]
+
+Enemies=""
+
 [input]
 
 attack={
