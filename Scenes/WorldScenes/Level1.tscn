@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cumd3iamx148q"]
+[gd_scene load_steps=30 format=4 uid="uid://cumd3iamx148q"]
 
 [ext_resource type="Script" path="res://Scripts/Core/RunTimeLevel.gd" id="1_epnxl"]
 [ext_resource type="Texture2D" uid="uid://bvx8qbny6m47x" path="res://Imports/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_f63jw"]
@@ -20,8 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://b7i3o8uxdw2ph" path="res://Scenes/Interactable/falling_spikes.tscn" id="18_xkt1f"]
 [ext_resource type="PackedScene" uid="uid://lipiflba82ve" path="res://Scenes/Entities/sabertooth.tscn" id="19_dc4he"]
 [ext_resource type="PackedScene" uid="uid://ck6wlitn0egbh" path="res://Scenes/Interactable/jumppad.tscn" id="20_y53cn"]
-[ext_resource type="PackedScene" uid="uid://dobblti8dyduy" path="res://Scenes/Interactable/movingplatform.tscn" id="21_ofnub"]
-[ext_resource type="PackedScene" uid="uid://blaqelbrbtixy" path="res://Scenes/Interactable/canon.tscn" id="22_tfpap"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_1rv7j"]
 tile_data = PackedInt32Array(0, 0, 8, 65536, 0, 9, 1, 65536, 8, 65537, 65536, 9, 2, 131072, 8, 65538, 131072, 9, 3, 196608, 8, 65539, 196608, 9, 4, 262144, 8, 65540, 262144, 9, 5, 327680, 8, 65541, 327680, 9)
@@ -685,7 +683,7 @@ position = Vector2(1050, -62)
 [node name="Jumppad" parent="." instance=ExtResource("20_y53cn")]
 position = Vector2(630, -51)
 
-
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer/Resume" to="UIManager" method="_on_resume_pressed"]
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer2/Restart" to="UIManager" method="_on_restart_pressed"]

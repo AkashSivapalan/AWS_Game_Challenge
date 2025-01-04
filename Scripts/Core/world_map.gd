@@ -18,12 +18,13 @@ func _ready() -> void:
 	levels = level_holder.get_children()
 	update_levels()
 	var label_l1 = $LevelHolder/Level1/LabelL1 
-	var label_l2 = $LevelHolder/Level1/LabelL2 
-	var label_l3 = $LevelHolder/Level1/LabelL3 
+	var label_l2 = $LevelHolder/Level2/LabelL2 
+	var label_l3 = $LevelHolder/Level3/LabelL3 
 	print(LevelData.level_dic)
 	if LevelData.level_dic["Level1"]["time"]!=null:
 		label_l1.text = format_time(LevelData.level_dic["Level1"]["time"])
 	if LevelData.level_dic["Level2"]["time"]!=null:
+		print("here",format_time(LevelData.level_dic["Level2"]["time"]))
 		label_l2.text = format_time(LevelData.level_dic["Level2"]["time"])
 	if LevelData.level_dic["Level3"]["time"]!=null:
 		label_l3.text = format_time(LevelData.level_dic["Level3"]["time"])

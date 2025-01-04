@@ -69,7 +69,7 @@ func beat_level():
 	LevelData.level_dic[level_name]["beaten"] = true
 	
 	var current_time = LevelData.level_dic[level_name]["time"]
-	if current_time == null or elapsed_time < current_time:
+	if current_time == null || elapsed_time < current_time:
 		LevelData.level_dic[level_name]["time"] = elapsed_time
 		
 	emit_signal("level_unlocked", level_name)
