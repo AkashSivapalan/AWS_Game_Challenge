@@ -63,7 +63,10 @@ func attack():
 		overlapping_objects = $LeftAttackArea.get_overlapping_areas()
 	for area in overlapping_objects:
 		var parent = area.get_parent()
-		parent.queue_free()
+		if parent.is_in_group("Enemies"):
+			parent.take_damage(1)
+		else:
+			parent.queue_free()
 
 func take_damage(damage_amount: int):
 	if can_take_damage:

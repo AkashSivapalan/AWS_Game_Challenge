@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lipiflba82ve"]
+[gd_scene load_steps=27 format=3 uid="uid://lipiflba82ve"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Sabertooth.gd" id="1_tvctd"]
 [ext_resource type="Texture2D" uid="uid://ceuujiivpmywk" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 01.png" id="2_d4iil"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://c11v2hltsk6ki" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="13_sus2d"]
 [ext_resource type="Texture2D" uid="uid://bj7x7pf312u18" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="14_l8t7s"]
 [ext_resource type="Texture2D" uid="uid://d3oef5gm454d8" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="15_347gw"]
+[ext_resource type="Texture2D" uid="uid://dj18tpam70eym" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="16_6h3bp"]
+[ext_resource type="Texture2D" uid="uid://duwwc7fis06od" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="17_teci7"]
+[ext_resource type="Texture2D" uid="uid://cn1ef2wjju46p" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="18_72a1v"]
+[ext_resource type="Texture2D" uid="uid://dpmg1bc4eqfjh" path="res://Imports/Treasure Hunters/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="19_fs3rd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w76y8"]
 radius = 8.0
@@ -23,6 +27,37 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpvr8"]
 radius = 9.0
 height = 26.0
+
+[sub_resource type="Animation" id="Animation_j2orm"]
+resource_name = "Die"
+length = 0.35
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("16_6h3bp"), ExtResource("17_teci7"), ExtResource("18_72a1v"), ExtResource("19_fs3rd")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dm65p"]
 resource_name = "Idle"
@@ -75,6 +110,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkbvy"]
 _data = {
+"Die": SubResource("Animation_j2orm"),
 "Idle": SubResource("Animation_dm65p"),
 "RESET": SubResource("Animation_cf8o4"),
 "Run": SubResource("Animation_21u76")
