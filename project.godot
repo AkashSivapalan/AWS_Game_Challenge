@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/Core/GameManager.gd"
 LevelData="*res://Scripts/Core/LevelData.gd"
+UserData="*res://Scripts/Core/UserData.gd"
 
 [display]
 

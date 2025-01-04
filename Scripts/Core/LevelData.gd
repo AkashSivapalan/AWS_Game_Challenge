@@ -4,31 +4,22 @@ var level_dic = {
 	"Level1": {
 		"unlocked": true,
 		"score": 0,
-		"max_score": 0,
-		"coins": 0,
-		"max_coins": 0,
-		"damage_taken": 0,
 		"unlocks": "Level2",
+		"time":null,
 		"beaten": false
 	},
 		"Level2": {
 		"unlocked": false,
 		"score": 0,
-		"max_score": 0,
-		"coins": 0,
-		"max_coins": 0,
-		"damage_taken": 0,
 		"unlocks": "Level3",
+		"time":null,
 		"beaten": false
 	},
 		"Level3": {
 		"unlocked": false,
 		"score": 0,
-		"max_score": 0,
-		"coins": 0,
-		"max_coins": 0,
-		"damage_taken": 0,
 		"unlocks": "Level1",
+		"time":null,
 		"beaten": false
 	}
 }

@@ -32,8 +32,11 @@ var max_coins = 0
 var elapsed_time: float = 0.0
 var timer_active: bool = false
 
+@onready var http_request= $HTTPRequest
+
 func _ready():
 	print("Level Started")
+	http_request.request_completed.connect(_on_http_request_request_completed)
 	start_timer()
 	GameManager.level_completed.connect(stop_timer_and_print)
 	
@@ -64,4 +67,41 @@ func format_time(time: float) -> String:
 func beat_level():
 	LevelData.level_dic[LevelData.level_dic[level_name]["unlocks"]]["unlocked"] = true
 	LevelData.level_dic[level_name]["beaten"] = true
+	
+	var current_time = LevelData.level_dic[level_name]["time"]
+	if current_time == null or elapsed_time < current_time:
+		LevelData.level_dic[level_name]["time"] = elapsed_time
+		
 	emit_signal("level_unlocked", level_name)
+	
+	if UserData.PlayerLogin:
+		var api_url = "https://7dkfknysrd.execute-api.us-east-1.amazonaws.com/updateLevels" 
+		var headers = ["Content-Type: application/json"]
+		
+		var updatedLevels = [level_name,LevelData.level_dic[LevelData.level_dic[level_name]["unlocks"]]]
+		var levels = []
+		for level_Selected in LevelData.level_dic.keys():
+			var level_info = LevelData.level_dic[level_Selected]
+			levels.append({
+				"name": level_Selected,
+				"unlocked": level_info["unlocked"],
+				"beaten": level_info["beaten"],
+				"time":level_info["time"],
+			})
+		var body = {
+			"playerId": UserData.PlayerId,
+			"levels": levels
+		}
+		http_request.request(api_url, headers, HTTPClient.METHOD_POST, JSON.new().stringify(body))
+	
+func _on_http_request_request_completed(result, response_code, headers, body):
+	print(response_code)
+	if response_code == 200:
+		print("Successful Update")
+
+#func checkResponse(result, response_code, headers, body):
+	#if response_code == 200:
+		#print("Successful Update")
+#
+#func _on_http_request_1_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+	#checkResponse(result, response_code, headers, body)

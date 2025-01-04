@@ -685,15 +685,7 @@ position = Vector2(1050, -62)
 [node name="Jumppad" parent="." instance=ExtResource("20_y53cn")]
 position = Vector2(630, -51)
 
-[node name="movingplatform" parent="." instance=ExtResource("21_ofnub")]
-position = Vector2(665, -169)
 
-[node name="Canon" parent="." instance=ExtResource("22_tfpap")]
-position = Vector2(564, -120)
-
-[node name="Canon2" parent="." instance=ExtResource("22_tfpap")]
-position = Vector2(296, -152)
-scale = Vector2(-1, 1)
 
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer/Resume" to="UIManager" method="_on_resume_pressed"]
 [connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer2/Restart" to="UIManager" method="_on_restart_pressed"]

@@ -127,6 +127,12 @@ right = NodePath("../Level2")
 position = Vector2(174, 89)
 texture = ExtResource("3_6h2wy")
 
+[node name="LabelL1" type="Label" parent="LevelHolder/Level1"]
+offset_left = 309.0
+offset_top = 78.0
+offset_right = 349.0
+offset_bottom = 101.0
+
 [node name="Level2" type="Node2D" parent="LevelHolder" node_paths=PackedStringArray("left")]
 position = Vector2(3, 0)
 script = ExtResource("2_aqxei")
@@ -136,6 +142,12 @@ left = NodePath("../Level1")
 position = Vector2(176, 182)
 texture = ExtResource("3_6h2wy")
 
+[node name="LabelL2" type="Label" parent="LevelHolder/Level2"]
+offset_left = 310.0
+offset_top = 167.0
+offset_right = 350.0
+offset_bottom = 190.0
+
 [node name="Level3" type="Node2D" parent="LevelHolder"]
 position = Vector2(3, 0)
 script = ExtResource("2_aqxei")
@@ -143,6 +155,12 @@ script = ExtResource("2_aqxei")
 [node name="Sprite2D" type="Sprite2D" parent="LevelHolder/Level3"]
 position = Vector2(179, 278)
 texture = ExtResource("3_6h2wy")
+
+[node name="LabelL3" type="Label" parent="LevelHolder/Level3"]
+offset_left = 299.0
+offset_top = 269.0
+offset_right = 339.0
+offset_bottom = 292.0
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(-1259, 340)

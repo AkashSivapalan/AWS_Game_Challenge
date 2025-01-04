@@ -6,6 +6,8 @@ extends Node2D
 var levels = []
 @onready var curr_level = $LevelHolder/Level1
 
+
+
 var lerp_speed = 0.5
 var lerp_progress = 0.0
 var completed_movement = true
@@ -15,6 +17,21 @@ func _ready() -> void:
 	player.get_node("AnimationPlayer").play("IDLE")
 	levels = level_holder.get_children()
 	update_levels()
+	var label_l1 = $LevelHolder/Level1/LabelL1 
+	var label_l2 = $LevelHolder/Level1/LabelL2 
+	var label_l3 = $LevelHolder/Level1/LabelL3 
+	print(LevelData.level_dic)
+	if LevelData.level_dic["Level1"]["time"]!=null:
+		label_l1.text = format_time(LevelData.level_dic["Level1"]["time"])
+	if LevelData.level_dic["Level2"]["time"]!=null:
+		label_l2.text = format_time(LevelData.level_dic["Level2"]["time"])
+	if LevelData.level_dic["Level3"]["time"]!=null:
+		label_l3.text = format_time(LevelData.level_dic["Level3"]["time"])
+
+func format_time(time: float) -> String:
+	var minutes = int(time / 60)
+	var seconds = int(time) % 60
+	return "%02d:%02d" % [minutes, seconds]
 
 func update_levels():
 	for level_name in LevelData.level_dic.keys():
@@ -42,44 +59,43 @@ func _on_level_unlocked(level_name):
 	print("Level unlocked:", level_name)
 	update_levels()
 
-func _process(delta: float) -> void:
-	var target_level: Node2D
-	if Input.is_action_just_pressed("ui_left"):
-		print("left")
-		if curr_level.left:
-			target_level = curr_level.left
-			print(curr_level.global_position)
-
-	if Input.is_action_just_pressed("ui_right"):
-		print("right")
-		if curr_level.right:
-			target_level = curr_level.right
-			print(curr_level.right.global_positon)
-	if Input.is_action_just_pressed("ui_accept"):
-		player.get_node("AnimationPlayer").play("SELECT")
-		await get_tree().create_timer(0.4).timeout
-		get_tree().change_scene_to_file("res://Scenes/WorldScenes/" + curr_level.name + ".tscn")
-
-	if target_level and target_level.name in LevelData.level_dic and LevelData.level_dic[target_level.name]["unlocked"] and completed_movement:
-		completed_movement = false
-		player.get_node("AnimationPlayer").play("RUN")
-		lerp_progress = 0.0
-		while lerp_progress < 1.0:
-			lerp_progress += lerp_speed * delta
-			lerp_progress = clamp(lerp_progress, 0.0, 1.0)
-			player.global_position = player.global_position.lerp(target_level.global_position, lerp_progress)
-
-			if player.global_position.distance_to(target_level.global_position) < lerp_threshold:
-				break
-			
-			await get_tree().create_timer(delta).timeout
-		player.global_position = target_level.global_position
-		curr_level = target_level
-		player.get_node("AnimationPlayer").play("IDLE")
-		completed_movement = true
-		
-		print("Player position: ", player.global_position)
-		print("Target position: ", target_level.global_position)
+#func _process(delta: float) -> void:
+	#var target_level: Node2D
+	#if Input.is_action_just_pressed("ui_left"):
+		#if curr_level.left:
+			#target_level = curr_level.left
+			#print(curr_level.global_position)
+#
+	#if Input.is_action_just_pressed("ui_right"):
+		#print("right")
+		#if curr_level.right:
+			#target_level = curr_level.right
+			#print(curr_level.right.global_positon)
+	#if Input.is_action_just_pressed("ui_accept"):
+		#player.get_node("AnimationPlayer").play("SELECT")
+		#await get_tree().create_timer(0.4).timeout
+		#get_tree().change_scene_to_file("res://Scenes/WorldScenes/" + curr_level.name + ".tscn")
+#
+	#if target_level and target_level.name in LevelData.level_dic and LevelData.level_dic[target_level.name]["unlocked"] and completed_movement:
+		#completed_movement = false
+		#player.get_node("AnimationPlayer").play("RUN")
+		#lerp_progress = 0.0
+		#while lerp_progress < 1.0:
+			#lerp_progress += lerp_speed * delta
+			#lerp_progress = clamp(lerp_progress, 0.0, 1.0)
+			#player.global_position = player.global_position.lerp(target_level.global_position, lerp_progress)
+#
+			#if player.global_position.distance_to(target_level.global_position) < lerp_threshold:
+				#break
+			#
+			#await get_tree().create_timer(delta).timeout
+		#player.global_position = target_level.global_position
+		#curr_level = target_level
+		#player.get_node("AnimationPlayer").play("IDLE")
+		#completed_movement = true
+		#
+		#print("Player position: ", player.global_position)
+		#print("Target position: ", target_level.global_position)
 
 
 func _on_level_1_pressed() -> void:
