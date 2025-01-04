@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dobblti8dyduy"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable/movingplatform.gd" id="1_0viaf"]
+[ext_resource type="Texture2D" uid="uid://bigp2u3ritw3x" path="res://Imports/Treasure Hunters/Palm Tree Island/Sprites/Terrain/PlatformMove.png" id="1_2lhoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42xsl"]
+size = Vector2(68, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtop6"]
+size = Vector2(68, 32)
+
+[sub_resource type="Animation" id="Animation_gyol6"]
+resource_name = "Move"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.63333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(128, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_87dy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rqssj"]
+_data = {
+"Move": SubResource("Animation_gyol6"),
+"RESET": SubResource("Animation_87dy5")
+}
+
+[node name="movingplatform" type="Node2D"]
+script = ExtResource("1_0viaf")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.729167, 0.71875)
+texture = ExtResource("1_2lhoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_42xsl")
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_xtop6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_rqssj")
+}
+
+[connection signal="area_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
