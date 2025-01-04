@@ -1,48 +1,3 @@
-# extends Node
-
-# signal level_beaten()
-# var current_checkpoint: Checkpoint
-# var coins: int
-
-# var player: Player
-# var pause = false
-# var pause_menu
-# var win_screen
-
-
-# func respawn_player():
-# 	player.health = player.max_health
-# 	if current_checkpoint != null:
-# 		player.global_position = current_checkpoint.global_position
-
-# func gain_coins(coins_gained):
-# 	coins += coins_gained
-# 	# emit_signal("gained_coins", coins_gained)
-
-# func pause_Play():
-# 	pause = !pause
-
-# 	pause_menu.visible = pause
-	
-
-# func resume():
-# 	get_tree().paused = false
-# 	pause_Play()
-
-# func restart():
-# 	current_checkpoint = null
-# 	get_tree().paused = false
-# 	get_tree().reload_current_scene()
-
-# func load_world():
-# 	get_tree().paused = false
-# 	get_tree().change_scene_to_file("res://Scenes/WorldScenes/world_map.tscn")
-# func quit():
-# 	get_tree().quit()
-
-# func win():
-# 	level_beaten.emit()
-# 	win_screen.visible = true
 
 extends Node
 
@@ -73,9 +28,6 @@ func _on_level_started():
 	print("Level has started!")
 	start_timer() # Call the function that starts the timer
 
-#func _process(delta: float) -> void:
-	#if timer_active and !get_tree().paused:
-		#elapsed_time += delta
 
 func start_timer():
 	elapsed_time = 0.0 # Reset timer to 0

@@ -44,3 +44,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		print("Registration Successful")
 	else:
 		print("Error with code:", response_code, "Response:", body.get_string_from_utf8())
+
+
+func _on_login_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/login_screen.tscn")
