@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bm16kr8n2wpnq"]
+[gd_scene load_steps=36 format=3 uid="uid://bm16kr8n2wpnq"]
 
 [ext_resource type="Script" path="res://Scripts/Core/world_map.gd" id="1_2s807"]
 [ext_resource type="Script" path="res://Scripts/Core/WorldMapLevel.gd" id="2_aqxei"]
@@ -91,6 +91,41 @@ _data = {
 "SELECT": SubResource("Animation_vcjj0")
 }
 
+[sub_resource type="Theme" id="Theme_gl8de"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpuoo"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybjsw"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1hu6"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfpqg"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3wyg"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x60b"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d11g"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrror"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v01fl"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylkx2"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o7dq"]
+bg_color = Color(0.988235, 0, 0.278431, 1)
+
 [node name="WorldMap" type="Node2D"]
 position = Vector2(3, 0)
 script = ExtResource("1_2s807")
@@ -104,10 +139,10 @@ scale = Vector2(10, 10)
 color = Color(0.572549, 0.662745, 0.807843, 1)
 
 [node name="Background" type="TextureRect" parent="."]
-offset_left = 1.0
-offset_top = -181.0
-offset_right = 1281.0
-offset_bottom = 539.0
+offset_left = -180.0
+offset_top = -119.0
+offset_right = 1100.0
+offset_bottom = 601.0
 texture = ExtResource("2_kxnka")
 
 [node name="Label" type="Label" parent="."]
@@ -195,23 +230,201 @@ offset_bottom = 297.0
 text = "Level 3"
 
 [node name="Login" type="Button" parent="ButtonHolder"]
-offset_left = 530.0
-offset_top = 72.0
-offset_right = 605.0
-offset_bottom = 103.0
+offset_left = 207.0
+offset_top = 358.0
+offset_right = 282.0
+offset_bottom = 389.0
 text = "Login
 "
 
+[node name="Logout" type="Button" parent="ButtonHolder"]
+offset_left = 875.0
+offset_top = 8.0
+offset_right = 950.0
+offset_bottom = 39.0
+text = "Logout
+"
+
 [node name="Register" type="Button" parent="ButtonHolder"]
-offset_left = 533.0
-offset_top = 123.0
-offset_right = 595.0
-offset_bottom = 154.0
+offset_left = 328.0
+offset_top = 359.0
+offset_right = 400.0
+offset_bottom = 390.0
 text = "Register
 "
+
+[node name="Leaderboard1" type="Button" parent="ButtonHolder"]
+offset_left = 531.0
+offset_top = 73.0
+offset_right = 631.0
+offset_bottom = 96.0
+theme = SubResource("Theme_gl8de")
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dpuoo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_ybjsw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p1hu6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vfpqg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_x3wyg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1x60b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6d11g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_mrror")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v01fl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ylkx2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3o7dq")
+text = "Leaderboard
+"
+
+[node name="Leaderboard2" type="Button" parent="ButtonHolder"]
+offset_left = 532.0
+offset_top = 163.0
+offset_right = 632.0
+offset_bottom = 186.0
+theme = SubResource("Theme_gl8de")
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dpuoo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_ybjsw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p1hu6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vfpqg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_x3wyg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1x60b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6d11g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_mrror")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v01fl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ylkx2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3o7dq")
+text = "Leaderboard"
+
+[node name="Leaderboard3" type="Button" parent="ButtonHolder"]
+offset_left = 531.0
+offset_top = 267.0
+offset_right = 631.0
+offset_bottom = 290.0
+theme = SubResource("Theme_gl8de")
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_dpuoo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_ybjsw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p1hu6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_vfpqg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_x3wyg")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_1x60b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6d11g")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_mrror")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v01fl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ylkx2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3o7dq")
+text = "Leaderboard
+"
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseMenu" type="ColorRect" parent="UIManager"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -75.0
+offset_right = 200.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.286275, 0.286275, 0.65098, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIManager/PauseMenu"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 150.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Quit" type="Button" parent="UIManager/PauseMenu/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+text = "Quit
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UIManager/PauseMenu"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 9.0
+offset_right = 400.0
+offset_bottom = 150.0
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="UIManager/PauseMenu/VBoxContainer2/HBoxContainer1"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="UIManager/PauseMenu/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIManager/PauseMenu/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="UIManager/PauseMenu/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(479, 271)
 
 [connection signal="pressed" from="ButtonHolder/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="ButtonHolder/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="ButtonHolder/Level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="ButtonHolder/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="ButtonHolder/Logout" to="." method="_on_logout_pressed"]
 [connection signal="pressed" from="ButtonHolder/Register" to="." method="_on_register_pressed"]
+[connection signal="pressed" from="ButtonHolder/Leaderboard1" to="." method="_on_leaderboard_1_pressed"]
+[connection signal="pressed" from="ButtonHolder/Leaderboard2" to="." method="_on_leaderboard_2_pressed"]
+[connection signal="pressed" from="ButtonHolder/Leaderboard3" to="." method="_on_leaderboard_3_pressed"]
+[connection signal="pressed" from="UIManager/PauseMenu/VBoxContainer/HBoxContainer4/Quit" to="." method="_on_quit_pressed"]
