@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 var canon_ball = load("res://Scenes/Interactable/canonball.tscn")
-var debris = load("res://Scenes/Interactable/canon_debris.tscn")
+# var debris = load("res://Scenes/Interactable/canon_debris.tscn")
 
 @export var shooting : bool
 var firerate = 2
@@ -38,12 +38,14 @@ func take_damage(damage_amount):
 	animation_player.play("Hit")
 
 	if health <= 0:
+		# $Area2D/CollisionShape2D.disabled = true
 		die()
 
 func die():
 	destroyed = true
-	$AnimationPlayer.play("crumble")
 	shooting = false
+	$AnimationPlayer.play("crumble")
+	$Area2D/CollisionShape2D.disabled = true
 	# var spawned_debris = debris.instantiate()
 	# spawned_debris.global_position = position
 	# spawned_debris.scale.x = scale.x
