@@ -1,23 +1,4 @@
-#extends Node
-#class_name RunTimeLevel
-#
-#signal level_started()
-#
-#@onready var level_name = name
-#var max_score = 0
-#var max_coins = 0
-#
-#
-#func _ready():
-	#print("Level Started")
-	#emit_signal("level_started")
-	#GameManager.level_beaten.connect(beat_level)
-#
-	#
-#func beat_level():
-	#LevelData.level_dic[LevelData.level_dic[level_name]["unlocks"]]["unlocked"] = true
-	#LevelData.level_dic[level_name]["beaten"] = true
-	#emit_signal("level_unlocked", level_name)
+
 extends Node
 class_name RunTimeLevel
 
@@ -92,6 +73,8 @@ func beat_level():
 			"playerId": UserData.PlayerId,
 			"levels": levels
 		}
+		
+		print(body)
 		http_request.request(api_url, headers, HTTPClient.METHOD_POST, JSON.new().stringify(body))
 	
 func _on_http_request_request_completed(result, response_code, headers, body):

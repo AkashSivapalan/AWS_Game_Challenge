@@ -3,6 +3,9 @@ var playerID_field: LineEdit
 var password_field: LineEdit
 var http_request: HTTPRequest
 
+@onready var errorLbl = $ErrorLbl
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	playerID_field = $NinePatchRect/VBoxContainer/PlayerID_Field
@@ -41,9 +44,9 @@ func _on_register_pressed() -> void:
 
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code == 200:
-		print("Registration Successful")
+		errorLbl.text = "Register Succcessful"
 	else:
-		print("Error with code:", response_code, "Response:", body.get_string_from_utf8())
+		errorLbl.text = "Failed to register"
 
 
 func _on_login_pressed() -> void:
