@@ -25,20 +25,16 @@ func _ready():
 
 func _on_level_started():
 	# Your method code here, for example:
-	print("Level has started!")
 	start_timer() # Call the function that starts the timer
 
 
 func start_timer():
 	elapsed_time = 0.0 # Reset timer to 0
 	timer_active = true
-	print("Timer started.")
+	
 
 func stop_timer():
 	timer_active = false
-	print("Timer stopped.")
-	print(elapsed_time)
-	print(format_time(elapsed_time))
 
 func pause_Play():
 	pause = !pause

@@ -108,4 +108,3 @@ func iframes():
 func die():
 	GameManager.respawn_player()
 	velocity = Vector2.ZERO
-	print("Player respawned at position:", position)

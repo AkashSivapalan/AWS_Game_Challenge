@@ -39,11 +39,9 @@ func _ready() -> void:
 	var label_l2 = $LevelHolder/Level2/LabelL2
 	var label_l3 = $LevelHolder/Level3/LabelL3
 	
-	print(LevelData.level_dic)
 	if LevelData.level_dic["Level1"]["time"] != null:
 		label_l1.text = format_time(LevelData.level_dic["Level1"]["time"])
 	if LevelData.level_dic["Level2"]["time"] != null:
-		print("here", format_time(LevelData.level_dic["Level2"]["time"]))
 		label_l2.text = format_time(LevelData.level_dic["Level2"]["time"])
 	if LevelData.level_dic["Level3"]["time"] != null:
 		label_l3.text = format_time(LevelData.level_dic["Level3"]["time"])
@@ -95,8 +93,6 @@ func _on_level_3_pressed() -> void:
 func change_Level(level_name: String):
 	if LevelData.level_dic[level_name]["unlocked"]:
 		get_tree().change_scene_to_file("res://Scenes/WorldScenes/" + level_name + ".tscn")
-	else:
-		print("Level is locked:", level_name)
 
 
 func _on_login_pressed() -> void:
@@ -139,8 +135,7 @@ func _on_logout_pressed() -> void:
 	
 func _on_http_request_request_completed(result, response_code, headers, body):
 	if response_code == 200:
-		print("Successful Request")
-
+		
 		var response_body = body.get_string_from_utf8()
 		var json = JSON.new()
 		var parse_result = json.parse_string(response_body)
@@ -172,7 +167,6 @@ func _on_leaderboard_1_pressed() -> void:
 
 func getLeaderboard(levelName):
 	var api_url = "https://7dkfknysrd.execute-api.us-east-1.amazonaws.com/topTimes/" + levelName
-	print(api_url)
 	var headers = ["Content-Type: application/json"]
 	http_request.request(api_url, headers, HTTPClient.METHOD_GET)
 
@@ -186,4 +180,14 @@ func _on_leaderboard_3_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	for i in range(1, 4):
+		var namePath = "UIManager/PauseMenu/VBoxContainer/HBoxContainer" + str(i) + "/name"
+		var nameLbl = get_node(namePath)
+		
+		var timePath = "UIManager/PauseMenu/VBoxContainer2/HBoxContainer" + str(i) + "/time"
+		var timeLbl = get_node(timePath)
+		
+		nameLbl.text = ""
+		timeLbl.text = ""
+
 	pause_menu.visible = false

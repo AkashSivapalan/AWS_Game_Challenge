@@ -1,4 +1,3 @@
-
 extends Node
 class_name RunTimeLevel
 
@@ -13,8 +12,8 @@ var max_coins = 0
 var elapsed_time: float = 0.0
 var timer_active: bool = false
 
-@onready var http_request= $HTTPRequest
-
+@onready var http_request = $HTTPRequest
+@onready var timeLbl = $UIManager/TimeDisplay
 func _ready():
 	print("Level Started")
 	http_request.request_completed.connect(_on_http_request_request_completed)
@@ -25,18 +24,17 @@ func _ready():
 func _process(delta: float) -> void:
 	if timer_active:
 		elapsed_time += delta
+	timeLbl.text = format_time(elapsed_time)
 
 # Method to start the timer
 func start_timer():
-	elapsed_time = 0.0  # Reset timer to 0
+	elapsed_time = 0.0 # Reset timer to 0
 	timer_active = true
-	print("Timer started.")
-
+	
 # Method to stop the timer and print the time
 func stop_timer_and_print():
 	timer_active = false
-	print("Timer stopped.")
-	print("Level completed in:", format_time(elapsed_time))
+
 	beat_level()
 
 # Format the time to MM:SS format
@@ -56,10 +54,10 @@ func beat_level():
 	emit_signal("level_unlocked", level_name)
 	
 	if UserData.PlayerLogin:
-		var api_url = "https://7dkfknysrd.execute-api.us-east-1.amazonaws.com/updateLevels" 
+		var api_url = "https://7dkfknysrd.execute-api.us-east-1.amazonaws.com/updateLevels"
 		var headers = ["Content-Type: application/json"]
 		
-		var updatedLevels = [level_name,LevelData.level_dic[LevelData.level_dic[level_name]["unlocks"]]]
+		var updatedLevels = [level_name, LevelData.level_dic[LevelData.level_dic[level_name]["unlocks"]]]
 		var levels = []
 		for level_Selected in LevelData.level_dic.keys():
 			var level_info = LevelData.level_dic[level_Selected]
@@ -67,18 +65,16 @@ func beat_level():
 				"name": level_Selected,
 				"unlocked": level_info["unlocked"],
 				"beaten": level_info["beaten"],
-				"time":level_info["time"],
+				"time": level_info["time"],
 			})
 		var body = {
 			"playerId": UserData.PlayerId,
 			"levels": levels
 		}
-		
-		print(body)
+
 		http_request.request(api_url, headers, HTTPClient.METHOD_POST, JSON.new().stringify(body))
 	
 func _on_http_request_request_completed(result, response_code, headers, body):
-	print(response_code)
 	if response_code == 200:
 		print("Successful Update")
 
