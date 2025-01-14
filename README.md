@@ -9,10 +9,10 @@ A 2D platformer built in Godot game engine. This prototype has 3 levels with AWS
 <h2>Controls</h2>
 Player Controls:
 
-Move Left: A
-Move Right: D
-Jump: Space
-Melee Attack: Mouse Left Click
+Move Left: A<br />
+Move Right: D<br />
+Jump: Space<br />
+Melee Attack: Mouse Left Click<br />
 
-Other Controls:
-Pause menu for levels: Esc
+Other Controls:<br />
+Pause menu for levels: Esc<br />
