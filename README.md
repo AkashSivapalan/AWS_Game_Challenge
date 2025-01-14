@@ -5,3 +5,14 @@
 
 <h2>Description</h2>
 A 2D platformer built in Godot game engine. This prototype has 3 levels with AWS services incorporated to facilitate user accounts and leaderboard displays to save play time data and compete with to get the best time in for clearing the levels in the game.<br />
+
+<h2>Controls</h2>
+Player Controls:
+
+Move Left: A
+Move Right: D
+Jump: Space
+Melee Attack: Mouse Left Click
+
+Other Controls:
+Pause menu for levels: Esc
