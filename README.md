@@ -19,18 +19,18 @@ Pause menu for levels: Esc<br />
 
 
 <h2>Demo Images:</h2>
-<img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Canon_Obstacle.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+<img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Canon_Obstacle.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
  <br /> 
- <img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Level_1_Spawn.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+ <img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Level_1_Spawn.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 <br />
- <img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Moving_Platform.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+ <img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Moving_Platform.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 <br />
- <img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Patrolling_enemy.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+ <img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Patrolling_enemy.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 <br />
- <img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Spikes_and_Health_Drop.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+ <img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Spikes_and_Health_Drop.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 <br />
-<img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/Login__Register_Screen.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+<img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/Login__Register_Screen.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
  <br /> 
- <img src="https://github.com/AkashSivapalan/TicTacToeFE/blob/master/SS/World_Map.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+ <img src="https://github.com/AkashSivapalan/AWS_Game_Challenge/blob/master/SS/World_Map.png?raw=true" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
  <br /> 
 
